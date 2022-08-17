@@ -11,6 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import sistemaFeira.model.Produto;
 import sistemaFeira.util.RepositorioProduto;
 import sistemaFeira.view.TelaCadastroProdutos;
+import sistemaFeira.view.TelaInicial;
 
 public class OuvinteTelaCadastroProdutos implements MouseListener{
 
@@ -91,6 +92,10 @@ public class OuvinteTelaCadastroProdutos implements MouseListener{
 			tela.setFont(new Font("Arial", 1, 14));
 			tela.getTxtNomeProduto().setText(nome.toString());
 			tela.getTxtPreco().setText(preco.toString());
+		}
+		else if(e.getSource() == tela.getLblSeta()) {
+			tela.dispose();
+			new TelaInicial().setVisible(true);
 		}
 	}
 

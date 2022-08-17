@@ -19,4 +19,5 @@ public class Imagens {
 	public static ImageIcon calculdora = new ImageIcon(Imagens.class.getResource("/imagensProjeto/calculadora.png"));
 	public static ImageIcon carrinho = new ImageIcon(Imagens.class.getResource("/imagensProjeto/carrinhoDeVenda.png"));
 	public static ImageIcon lixeira = new ImageIcon(Imagens.class.getResource("/imagensProjeto/lixeiraAmarela.png"));
+	public static ImageIcon seta = new ImageIcon(Imagens.class.getResource("/imagensProjeto/seta.png"));
 }

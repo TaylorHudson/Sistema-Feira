@@ -27,6 +27,7 @@ public class TelaCadastroProdutos extends JFrame {
 	private JLabel lblAtualizar;
 	private JLabel lblExcluir;
 	private JTable tbPreco;
+	private JLabel lblSeta;
 		
 	public TelaCadastroProdutos() {
 		configurarTela();
@@ -139,12 +140,18 @@ public class TelaCadastroProdutos extends JFrame {
 		lblTxtExcluir.setBounds(590, 80, 250, 70);	
 		lblTxtExcluir.setFont(new Font("Arial", 1, 14));
 		
+		lblSeta = new JLabel(Imagens.seta);
+		lblSeta.setBounds(830, -12,50,50);
+		lblSeta.addMouseListener(ouvinte);
+		
 		painel.add(lblTxtRegistrar);
 		painel.add(lblTxtAtualizar);
 		painel.add(lblTxtExcluir);
 		painel.add(lblAtualizar);
 		painel.add(lblRegistrar);
 		painel.add(lblExcluir);
+		
+		add(lblSeta);
 		add(painel);
 		add(lblOpcoes);
 	}
@@ -190,5 +197,8 @@ public class TelaCadastroProdutos extends JFrame {
 	}
 	public JTable getTbPreco() {
 		return tbPreco;
+	}
+	public JLabel getLblSeta() {
+		return lblSeta;
 	}
 }

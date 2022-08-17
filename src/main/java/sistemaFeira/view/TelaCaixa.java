@@ -36,7 +36,10 @@ public class TelaCaixa extends JFrame{
 	private JLabel lblCalculadora;
 	private JLabel lblRealizarVenda;
 	private JLabel lblExcluir;
+	private JLabel lblSeta;
+	private JLabel lblValorTotal;
 	
+	private JTable tbVendas;
 	private JComboBox<String> box;
 	
 	public TelaCaixa() {
@@ -69,7 +72,7 @@ public class TelaCaixa extends JFrame{
 		box.setFont(new Font("Arial", 1, 9));
 		box.setForeground(Color.white);
 		box.setBackground(new Color(70,130,180));
-		box.addMouseListener(ouvinte);
+		box.addActionListener(ouvinte);
 		
 		lblProdutos.setIcon(Imagens.lupa);
 		lblProdutos.setFont(new Font("Arial",1,14));
@@ -128,7 +131,7 @@ public class TelaCaixa extends JFrame{
 		lblNumeroVendas.setFont(new Font("Arial",1,16));
 		lblNumeroVendas.setOpaque(true);
 		lblNumeroVendas.setBackground(new Color(70,130,180));
-		lblNumeroVendas.setBounds(10, 15, 280, 50);
+		lblNumeroVendas.setBounds(10, 10, 280, 45);
 		
 		lblCalculadora = new JLabel();
 		lblCalculadora.setLayout(null);
@@ -167,6 +170,20 @@ public class TelaCaixa extends JFrame{
 		lblRecebido.add(txtRecebido);
 		lblTroco.add(txtTroco);
 		
+		lblSeta = new JLabel(Imagens.seta);
+		lblSeta.setBounds(832, -12, 50, 50);
+		lblSeta.addMouseListener(ouvinte);
+		
+		JLabel lblTotal = new JLabel("TOTAL: ");
+		lblTotal.setFont(new Font("Arial", 0, 23));
+		lblTotal.setBounds(10, 380, 300, 50);
+		
+		lblValorTotal = new JLabel("0");
+		lblValorTotal.setFont(new Font("Arial", 0, 21));
+		lblValorTotal.setBounds(100, 380, 300, 50);
+		
+		painelOpcoes.add(lblValorTotal);
+		painelOpcoes.add(lblTotal);
 		painelVenda.add(lblNumeroVendas);
 		
 		painelOpcoes.add(lblCalculadora);
@@ -176,13 +193,15 @@ public class TelaCaixa extends JFrame{
 		painelProdutos.add(lblRecebido);
 		painelProdutos.add(lblData);
 		painelProdutos.add(lblProdutos);
+		
+		add(lblSeta);
 	}
 	
 	private void configurarTabela() {
 		DefaultTableModel model = new DefaultTableModel(0,4);
 		model.setColumnIdentifiers(new String[] {"CÓDIGO", "PRODUTO", "PREÇO", "QUANTIDADE", "TOTAL"});
 		
-		JTable tbVendas = new JTable(model);
+		tbVendas = new JTable(model);
 		tbVendas.setEnabled(false);
 		JScrollPane scrol = new JScrollPane(tbVendas);
 		
@@ -202,7 +221,7 @@ public class TelaCaixa extends JFrame{
 		painelVenda = new JPanel();
 		painelVenda.setLayout(null);
 		painelVenda.setBorder(BorderFactory.createLineBorder(new Color(112,128,144),2));
-		painelVenda.setBounds(575,10, 300, 80);
+		painelVenda.setBounds(575,25, 300, 65);
 		
 		painelOpcoes = new JPanel();
 		painelOpcoes.setLayout(null);
@@ -233,24 +252,22 @@ public class TelaCaixa extends JFrame{
 	public JLabel getLblProdutos() {
 		return lblProdutos;
 	}
-	
 	public JLabel getLblRecebido() {
 		return lblRecebido;
 	}
-	
 	public JLabel getLblTroco() {
 		return lblTroco;
 	}	
-	
 	public JComboBox<String> getBox() {
 		return box;
 	}
-
-	public void setBox(JComboBox<String> box) {
-		this.box = box;
+	public JLabel getLblSeta() {
+		return lblSeta;
 	}
-
-	public static void main(String[] args) {
-		new TelaCaixa().setVisible(true);
+	public JTable getTbVendas() {
+		return tbVendas;
+	}
+	public JLabel getLblValorTotal() {
+		return lblValorTotal;
 	}
 }
