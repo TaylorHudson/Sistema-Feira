@@ -4,7 +4,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import sistemaFeira.model.Produto;
@@ -49,12 +51,18 @@ public class OuvinteTelaCadastroProdutos implements MouseListener{
 
 		else if (e.getSource() == tela.getLblRegistrar()) {	
 			Produto p = new Produto(tela.getTxtNomeProduto().getText().toUpperCase(),tela.getTxtPreco().getText().toUpperCase());
-			repo.cadastrarProduto(p);
 			
-			limparTabela();
-			tela.listarProdutosTabela();
+			boolean cadastrado = repo.cadastrado(p);
 			
-			limparTexto();
+			if(!cadastrado) {
+				repo.cadastrarProduto(p);
+				limparTabela();
+				tela.listarProdutosTabela();
+				limparTexto();
+			}
+			else{
+				JOptionPane.showMessageDialog(null, "Produto já cadastrado!", "Erro", 0, null);
+			}		
 		}
 		
 		else if(e.getSource() == tela.getLblExculir()) {

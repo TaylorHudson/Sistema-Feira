@@ -67,4 +67,14 @@ public class RepositorioProduto {
 		
 		return produtos;
 	}
+	
+	public Boolean cadastrado(Produto p) {
+		List<Produto> l = todosProdutos();
+		for(Produto produto : l) {
+			if(produto.equals(p)) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
