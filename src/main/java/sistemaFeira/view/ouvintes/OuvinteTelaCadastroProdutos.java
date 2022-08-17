@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.List;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -25,11 +24,6 @@ public class OuvinteTelaCadastroProdutos implements MouseListener{
 	private void limparTabela() {
 		DefaultTableModel model = (DefaultTableModel) tela.getTbPreco().getModel();
 		model.setRowCount(0);
-		//int tamanho = tela.getTbPreco().getRowCount();
-		//System.out.println(tamanho);
-		//for(int i = 0; i <= tamanho; i++) {
-		//	model.removeRow(i);
-		//}
 	}
 	
 	private void limparTexto() {

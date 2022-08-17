@@ -13,4 +13,10 @@ public class Imagens {
 	public static ImageIcon registrarProduto = new ImageIcon(Imagens.class.getResource("/imagensProjeto/registrarProduto.png"));
 	public static ImageIcon atualizarProduto = new ImageIcon(Imagens.class.getResource("/imagensProjeto/atualizar.png"));
 	public static ImageIcon excluirProduto = new ImageIcon(Imagens.class.getResource("/imagensProjeto/excluir.png"));
+	public static ImageIcon lupa = new ImageIcon(Imagens.class.getResource("/imagensProjeto/lupa.png"));
+	public static ImageIcon calendario = new ImageIcon(Imagens.class.getResource("/imagensProjeto/calendario.png"));
+	public static ImageIcon troco = new ImageIcon(Imagens.class.getResource("/imagensProjeto/troco.png"));
+	public static ImageIcon calculdora = new ImageIcon(Imagens.class.getResource("/imagensProjeto/calculadora.png"));
+	public static ImageIcon carrinho = new ImageIcon(Imagens.class.getResource("/imagensProjeto/carrinhoDeVenda.png"));
+	public static ImageIcon lixeira = new ImageIcon(Imagens.class.getResource("/imagensProjeto/lixeiraAmarela.png"));
 }

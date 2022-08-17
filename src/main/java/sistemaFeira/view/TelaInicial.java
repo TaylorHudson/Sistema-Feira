@@ -50,10 +50,12 @@ public class TelaInicial extends JFrame{
 		imgCaixa = new JLabel();
 		imgCaixa.setIcon(Imagens.caixa);
 		imgCaixa.setBounds(400, 25, 40, 40);
+		imgCaixa.addMouseListener(ouvinte);
 		
 		imgVendas = new JLabel();
 		imgVendas.setIcon(Imagens.dinheiro);
 		imgVendas.setBounds(550, 25, 40, 40);
+		imgVendas.addMouseListener(ouvinte);
 		
 		add(imgVendas);
 		add(imgProduto);

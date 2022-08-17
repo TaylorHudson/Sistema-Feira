@@ -2,45 +2,46 @@ package sistemaFeira.view.ouvintes;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
-import sistemaFeira.view.TelaCadastroProdutos;
+import java.util.List;
+import sistemaFeira.model.Produto;
+import sistemaFeira.util.RepositorioProduto;
 import sistemaFeira.view.TelaCaixa;
-import sistemaFeira.view.TelaInicial;
 
-public class OuvinteTelaInicial implements MouseListener{
+public class OuvinteTelaCaixa implements MouseListener{
 
-	TelaInicial tela;
+	private TelaCaixa tela;
+	private RepositorioProduto repo = new RepositorioProduto();
 	
-	public OuvinteTelaInicial(TelaInicial t) {
-		this.tela = t;
+	public OuvinteTelaCaixa(TelaCaixa tela) {
+		this.tela = tela;
 	}
 	
+	@Override
 	public void mouseClicked(MouseEvent e) {
-		if (e.getSource() == tela.getImgProduto()) {
-			this.tela.dispose();
-			new TelaCadastroProdutos().setVisible(true);;
-		}
-		else if (e.getSource() == tela.getImgCaixa()) {
-			this.tela.dispose();
-			new TelaCaixa().setVisible(true);
+		if(e.getSource() == tela.getBox()) {
+			
 		}
 	}
 
+	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
