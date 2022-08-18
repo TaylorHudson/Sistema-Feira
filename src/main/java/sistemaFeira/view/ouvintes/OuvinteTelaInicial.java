@@ -18,7 +18,7 @@ public class OuvinteTelaInicial implements MouseListener{
 	public void mouseClicked(MouseEvent e) {
 		if (e.getSource() == tela.getImgProduto()) {
 			this.tela.dispose();
-			new TelaCadastroProdutos().setVisible(true);;
+			new TelaCadastroProdutos().setVisible(true);
 		}
 		else if (e.getSource() == tela.getImgCaixa()) {
 			this.tela.dispose();

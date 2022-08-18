@@ -14,8 +14,8 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import sistemaFeira.model.Produto;
+import sistemaFeira.repositorios.RepositorioProduto;
 import sistemaFeira.util.Imagens;
-import sistemaFeira.util.RepositorioProduto;
 import sistemaFeira.view.ouvintes.OuvinteTelaCadastroProdutos;
 
 public class TelaCadastroProdutos extends JFrame {

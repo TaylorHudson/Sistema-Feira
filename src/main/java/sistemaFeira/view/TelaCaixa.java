@@ -17,8 +17,8 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import sistemaFeira.model.Produto;
+import sistemaFeira.repositorios.RepositorioProduto;
 import sistemaFeira.util.Imagens;
-import sistemaFeira.util.RepositorioProduto;
 import sistemaFeira.view.ouvintes.OuvinteTelaCaixa;
 
 public class TelaCaixa extends JFrame{
@@ -38,6 +38,9 @@ public class TelaCaixa extends JFrame{
 	private JLabel lblExcluir;
 	private JLabel lblSeta;
 	private JLabel lblValorTotal;
+	
+	private JTextField txtRecebido;
+	private JTextField txtTroco;
 	
 	private JTable tbVendas;
 	private JComboBox<String> box;
@@ -91,7 +94,7 @@ public class TelaCaixa extends JFrame{
 		lblData.setBorder(BorderFactory.createLineBorder(new Color(70,130,180)));
 		
 		lblTroco = new JLabel();
-		JTextField txtTroco = new JTextField();
+		txtTroco = new JTextField();
 		lblTroco.setLayout(null);
 		lblTroco.setBounds(415, 15, 130, 50);
 		txtTroco.setBounds(40, 10, 108, 30);
@@ -109,7 +112,7 @@ public class TelaCaixa extends JFrame{
 		lblTroco.setBorder(BorderFactory.createLineBorder(new Color(70,130,180)));
 		
 		lblRecebido = new JLabel();
-		JTextField txtRecebido = new JTextField();
+		txtRecebido = new JTextField();
 		lblRecebido.setLayout(null);
 		lblRecebido.setBounds(280, 15, 130, 50);
 		txtRecebido.setBounds(40, 10, 108, 30);
@@ -120,10 +123,12 @@ public class TelaCaixa extends JFrame{
 		txtRecebido.setEditable(false);
 		txtRecebido.setBorder(BorderFactory.createLineBorder(new Color(70,130,180)));
 		txtRecebido.setFont(new Font("Arial",1,16));
+		txtRecebido.addMouseListener(ouvinte);
 		lblRecebido.setIcon(Imagens.moeda);
 		lblRecebido.setOpaque(true);
 		lblRecebido.setBackground(new Color(70,130,180));
 		lblRecebido.setBorder(BorderFactory.createLineBorder(new Color(70,130,180)));
+		lblRecebido.addMouseListener(ouvinte);
 		
 		JLabel lblNumeroVendas = new JLabel();
 		lblNumeroVendas.setForeground(Color.white);
@@ -143,6 +148,7 @@ public class TelaCaixa extends JFrame{
 		lblCalculadora.setOpaque(true);
 		lblCalculadora.setBackground(new Color(70,130,180));
 		lblCalculadora.setBorder(BorderFactory.createLineBorder(new Color(70,130,180)));
+		lblCalculadora.addMouseListener(ouvinte);
 		
 		lblRealizarVenda = new JLabel();
 		lblRealizarVenda.setLayout(null);
@@ -165,6 +171,7 @@ public class TelaCaixa extends JFrame{
 		lblExcluir.setOpaque(true);
 		lblExcluir.setBackground(new Color(70,130,180));
 		lblExcluir.setBorder(BorderFactory.createLineBorder(new Color(70,130,180)));
+		lblExcluir.addMouseListener(ouvinte);
 		
 		lblProdutos.add(box);
 		lblRecebido.add(txtRecebido);
@@ -269,5 +276,17 @@ public class TelaCaixa extends JFrame{
 	}
 	public JLabel getLblValorTotal() {
 		return lblValorTotal;
+	}
+	public JLabel getLblExcluir() {
+		return lblExcluir;
+	}
+	public JLabel getLblCalculadora() {
+		return lblCalculadora;
+	}
+	public JTextField getTxtRecebido() {
+		return txtRecebido;
+	}
+	public JTextField getTxtTroco() {
+		return txtTroco;
 	}
 }

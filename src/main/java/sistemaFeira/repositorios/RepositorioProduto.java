@@ -1,4 +1,4 @@
-package sistemaFeira.util;
+package sistemaFeira.repositorios;
 
 import java.util.List;
 
@@ -62,7 +62,7 @@ public class RepositorioProduto {
 	public List<Produto> todosProdutos() {
 		EntityManager em = emf.createEntityManager();
 		
-		Query q = em.createQuery("SELECT produto FROM Produto produto");
+		Query q = em.createQuery("SELECT p FROM Produto p ORDER BY p.nome");
 		List<Produto> produtos = q.getResultList();
 		
 		return produtos;

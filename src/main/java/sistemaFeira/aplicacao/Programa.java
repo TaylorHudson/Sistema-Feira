@@ -1,6 +1,5 @@
 package sistemaFeira.aplicacao;
 
-
 import sistemaFeira.view.TelaCadastroProdutos;
 import sistemaFeira.view.TelaInicial;
 
@@ -12,5 +11,6 @@ public class Programa {
 		t.listarProdutosTabela();
 		
 		new TelaInicial();
+		
 	}
 }

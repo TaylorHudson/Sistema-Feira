@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import sistemaFeira.model.Produto;
-import sistemaFeira.util.RepositorioProduto;
+import sistemaFeira.repositorios.RepositorioProduto;
 import sistemaFeira.view.TelaCadastroProdutos;
 import sistemaFeira.view.TelaInicial;
 
