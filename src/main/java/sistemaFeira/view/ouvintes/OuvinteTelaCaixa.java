@@ -5,13 +5,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import sistemaFeira.model.Produto;
+import sistemaFeira.model.Venda;
 import sistemaFeira.repositorios.RepositorioProduto;
+import sistemaFeira.repositorios.RepositorioVenda;
 import sistemaFeira.view.TelaCaixa;
 import sistemaFeira.view.TelaInicial;
 
@@ -64,6 +68,18 @@ public class OuvinteTelaCaixa implements MouseListener, ActionListener{
 			else {
 				JOptionPane.showMessageDialog(null, "Valor recebido foi insuficiente.", "AtenÃ§Ã£o!", 2, null);
 			}
+		}
+		else if(e.getSource() == tela.getLblRealizarVenda()) {
+			SimpleDateFormat spdfDia = new SimpleDateFormat("dd/MM/yyyy");
+			SimpleDateFormat spdfHora = new SimpleDateFormat("HH:mm:ss");
+			RepositorioVenda repo = new RepositorioVenda();
+			
+			Double total = Double.parseDouble(tela.getLblValorTotal().getText());
+			Date date = new Date();
+			Venda venda = new Venda(total,spdfDia.format(date),spdfHora.format(date));
+			
+			repo.cadastrarVenda(venda);
+			JOptionPane.showMessageDialog(null, "Venda Cadastrada Com Sucesso.", "Informação da Venda", 1, null);
 		}
 	}
 

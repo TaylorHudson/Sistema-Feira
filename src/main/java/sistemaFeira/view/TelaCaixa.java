@@ -160,6 +160,7 @@ public class TelaCaixa extends JFrame{
 		lblRealizarVenda.setOpaque(true);
 		lblRealizarVenda.setBackground(new Color(70,130,180));
 		lblRealizarVenda.setBorder(BorderFactory.createLineBorder(new Color(70,130,180)));
+		lblRealizarVenda.addMouseListener(ouvinte);
 		
 		lblExcluir = new JLabel();
 		lblExcluir.setLayout(null);
@@ -288,5 +289,8 @@ public class TelaCaixa extends JFrame{
 	}
 	public JTextField getTxtTroco() {
 		return txtTroco;
+	}
+	public JLabel getLblRealizarVenda() {
+		return lblRealizarVenda;
 	}
 }

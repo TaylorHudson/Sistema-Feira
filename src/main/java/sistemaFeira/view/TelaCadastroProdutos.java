@@ -79,7 +79,7 @@ public class TelaCadastroProdutos extends JFrame {
 		txtNomeProduto.addMouseListener(ouvinte);
 		
 		JLabel lblPreco = new JLabel();
-		txtPreco = new JTextField("PREÃ‡O DO PRODUTO");
+		txtPreco = new JTextField("PREÇO DO PRODUTO");
 		
 		lblPreco.setIcon(Imagens.moeda);
 		lblPreco.setBorder(BorderFactory.createLineBorder(Color.black,2));

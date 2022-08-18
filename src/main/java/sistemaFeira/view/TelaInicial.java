@@ -96,8 +96,4 @@ public class TelaInicial extends JFrame{
 	public JLabel getImgCaixa() {
 		return imgCaixa;
 	}
-
-	public static void main(String[] args) {
-		new TelaInicial();
-	}
 }
