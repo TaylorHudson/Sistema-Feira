@@ -12,6 +12,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.table.DefaultTableModel;
 
 import com.toedter.calendar.JDateChooser;
@@ -38,11 +40,24 @@ public class TelaVendas extends JFrame{
 	
 	public TelaVendas() {
 		configurarTela();
+		configurarLookAndFeel();
 		configurarPainel();
 		configurarLabel();
 		configurarTabela();
 		configurarDateChooser();
-		
+	}
+	
+	private void configurarLookAndFeel() {
+		try {
+		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+		        if ("Nimbus".equals(info.getName())) {
+		            UIManager.setLookAndFeel(info.getClassName());
+		            break;
+		        }
+		    }
+		} catch (Exception e) {
+			
+		}
 	}
 	
 	private void configurarTela() {
@@ -68,7 +83,7 @@ public class TelaVendas extends JFrame{
 		
 		chooser.setBounds(40, 10, 152, 30);
 		chooser.setForeground(Color.blue);
-		chooser.setFont(new Font("Arial", 1, 13));
+		chooser.setFont(new Font("Arial", 1, 10));
 		
 		lblChooser.setIcon(Imagens.lupaMaior);
 		

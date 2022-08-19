@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.table.DefaultTableModel;
 
 import com.toedter.calendar.JCalendar;
@@ -33,11 +35,25 @@ public class TelaCadastroProdutos extends JFrame {
 		
 	public TelaCadastroProdutos() {
 		configurarTela();
+		configurarLookAndFeel();
 		configurarAreaRegistro();
 		configurarAreaOpcao();
 		configurarTabela();
 		listarProdutosTabela();
 
+	}
+	
+	private void configurarLookAndFeel() {
+		try {
+		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+		        if ("Nimbus".equals(info.getName())) {
+		            UIManager.setLookAndFeel(info.getClassName());
+		            break;
+		        }
+		    }
+		} catch (Exception e) {
+			
+		}
 	}
 
 	private void configurarTela() {

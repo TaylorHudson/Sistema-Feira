@@ -5,6 +5,8 @@ import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 
 import sistemaFeira.util.Imagens;
 import sistemaFeira.view.ouvintes.OuvinteTelaInicial;
@@ -19,10 +21,24 @@ public class TelaInicial extends JFrame{
 
 	public TelaInicial() {
 		configurarTela();
+		configurarLookAndFeel();
 		configurarImagens();
 		configurarLabel();
 		
 		setVisible(true);
+	}
+	
+	private void configurarLookAndFeel() {
+		try {
+		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+		        if ("Nimbus".equals(info.getName())) {
+		            UIManager.setLookAndFeel(info.getClassName());
+		            break;
+		        }
+		    }
+		} catch (Exception e) {
+			
+		}
 	}
 	
 	private void configurarTela() {

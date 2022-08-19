@@ -14,6 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.table.DefaultTableModel;
 
 import sistemaFeira.model.Produto;
@@ -38,6 +40,7 @@ public class TelaCaixa extends JFrame{
 	private JLabel lblExcluir;
 	private JLabel lblSeta;
 	private JLabel lblValorTotal;
+	private JLabel lblNumeroVendas;
 	
 	private JTextField txtRecebido;
 	private JTextField txtTroco;
@@ -47,10 +50,24 @@ public class TelaCaixa extends JFrame{
 	
 	public TelaCaixa() {
 		configurarTela();
+		configurarLookAndFeel();
 		configurarPanel();
 		configurarLabel();
 		configurarTabela();
 		carregarProdutos();
+	}
+	
+	private void configurarLookAndFeel() {
+		try {
+		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+		        if ("Nimbus".equals(info.getName())) {
+		            UIManager.setLookAndFeel(info.getClassName());
+		            break;
+		        }
+		    }
+		} catch (Exception e) {
+			
+		}
 	}
 	
 	private void configurarTela() {
@@ -70,7 +87,7 @@ public class TelaCaixa extends JFrame{
 		
 		lblProdutos = new JLabel();
 		box = new JComboBox<String>(new String[] {"PRODUTOS"});
-		box.setBounds(22,12, 112, 25);
+		box.setBounds(18,12, 112, 25);
 		box.setOpaque(true);
 		box.setFont(new Font("Arial", 1, 9));
 		box.setForeground(Color.white);
@@ -83,7 +100,7 @@ public class TelaCaixa extends JFrame{
 		lblProdutos.setBounds(10, 15, 130, 50);
 		lblProdutos.setOpaque(true);
 		lblProdutos.setBackground(new Color(70,130,180));
-		lblProdutos.setBorder(BorderFactory.createLineBorder(new Color(70,130,180)));
+		lblProdutos.setBorder(BorderFactory.createLineBorder(Color.black,2));
 		
 		lblData = new JLabel(Imagens.calendario);
 		lblData.setText(spdf.format(data));
@@ -91,13 +108,14 @@ public class TelaCaixa extends JFrame{
 		lblData.setBounds(145, 15, 130, 50);
 		lblData.setOpaque(true);
 		lblData.setBackground(new Color(70,130,180));
-		lblData.setBorder(BorderFactory.createLineBorder(new Color(70,130,180)));
+		lblData.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
 		
 		lblTroco = new JLabel();
 		txtTroco = new JTextField();
 		lblTroco.setLayout(null);
 		lblTroco.setBounds(415, 15, 130, 50);
-		txtTroco.setBounds(40, 10, 108, 30);
+		lblTroco.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+		txtTroco.setBounds(40, 10, 85, 30);
 		txtTroco.setOpaque(true);
 		txtTroco.setBackground(new Color(70,130,180));
 		txtTroco.setForeground(Color.white);
@@ -109,13 +127,14 @@ public class TelaCaixa extends JFrame{
 		lblTroco.setIcon(Imagens.troco);
 		lblTroco.setOpaque(true);
 		lblTroco.setBackground(new Color(70,130,180));
-		lblTroco.setBorder(BorderFactory.createLineBorder(new Color(70,130,180)));
+		lblTroco.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
 		
 		lblRecebido = new JLabel();
 		txtRecebido = new JTextField();
 		lblRecebido.setLayout(null);
 		lblRecebido.setBounds(280, 15, 130, 50);
-		txtRecebido.setBounds(40, 10, 108, 30);
+		lblRecebido.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+		txtRecebido.setBounds(40, 10, 85, 30);
 		txtRecebido.setOpaque(true);
 		txtRecebido.setBackground(new Color(70,130,180));
 		txtRecebido.setForeground(new Color(176,196,222));
@@ -127,15 +146,17 @@ public class TelaCaixa extends JFrame{
 		lblRecebido.setIcon(Imagens.moeda);
 		lblRecebido.setOpaque(true);
 		lblRecebido.setBackground(new Color(70,130,180));
-		lblRecebido.setBorder(BorderFactory.createLineBorder(new Color(70,130,180)));
+		lblRecebido.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
 		lblRecebido.addMouseListener(ouvinte);
 		
-		JLabel lblNumeroVendas = new JLabel();
+		lblNumeroVendas = new JLabel();
 		lblNumeroVendas.setForeground(Color.white);
-		lblNumeroVendas.setText("  N°");
+		lblNumeroVendas.setText("1");
+		lblNumeroVendas.setIcon(Imagens.codigoBarra);
 		lblNumeroVendas.setFont(new Font("Arial",1,16));
 		lblNumeroVendas.setOpaque(true);
 		lblNumeroVendas.setBackground(new Color(70,130,180));
+		lblNumeroVendas.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
 		lblNumeroVendas.setBounds(10, 10, 280, 45);
 		
 		lblCalculadora = new JLabel();
@@ -147,7 +168,7 @@ public class TelaCaixa extends JFrame{
 		lblCalculadora.setForeground(Color.white);
 		lblCalculadora.setOpaque(true);
 		lblCalculadora.setBackground(new Color(70,130,180));
-		lblCalculadora.setBorder(BorderFactory.createLineBorder(new Color(70,130,180)));
+		lblCalculadora.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
 		lblCalculadora.addMouseListener(ouvinte);
 		
 		lblRealizarVenda = new JLabel();
@@ -159,7 +180,7 @@ public class TelaCaixa extends JFrame{
 		lblRealizarVenda.setForeground(Color.white);
 		lblRealizarVenda.setOpaque(true);
 		lblRealizarVenda.setBackground(new Color(70,130,180));
-		lblRealizarVenda.setBorder(BorderFactory.createLineBorder(new Color(70,130,180)));
+		lblRealizarVenda.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
 		lblRealizarVenda.addMouseListener(ouvinte);
 		
 		lblExcluir = new JLabel();
@@ -171,7 +192,7 @@ public class TelaCaixa extends JFrame{
 		lblExcluir.setForeground(Color.white);
 		lblExcluir.setOpaque(true);
 		lblExcluir.setBackground(new Color(70,130,180));
-		lblExcluir.setBorder(BorderFactory.createLineBorder(new Color(70,130,180)));
+		lblExcluir.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
 		lblExcluir.addMouseListener(ouvinte);
 		
 		lblProdutos.add(box);
@@ -188,6 +209,7 @@ public class TelaCaixa extends JFrame{
 		lblTotal.setOpaque(true);
 		lblTotal.setBackground(new Color(70,130,180));
 		lblTotal.setForeground(Color.white);
+		lblTotal.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
 		
 		lblValorTotal = new JLabel("0");
 		lblValorTotal.setFont(new Font("Arial", 0, 21));
@@ -296,5 +318,9 @@ public class TelaCaixa extends JFrame{
 	}
 	public JLabel getLblRealizarVenda() {
 		return lblRealizarVenda;
+	}
+
+	public JLabel getLblNumeroVendas() {
+		return lblNumeroVendas;
 	}
 }

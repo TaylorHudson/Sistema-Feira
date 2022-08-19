@@ -51,7 +51,10 @@ public class OuvinteTelaCadastroProdutos implements MouseListener{
 			if(!nome.equals("NOME DO PRODUTO") && !nome.isBlank()
 					&& !preco.equals("PREÇO DO PRODUTO") && !preco.isBlank()) {
 				
-				Produto p = new Produto(tela.getTxtNomeProduto().getText().toUpperCase(),tela.getTxtPreco().getText().toUpperCase());
+				String nomeProduto = tela.getTxtNomeProduto().getText();
+				String precoProduto = tela.getTxtPreco().getText().replaceAll(",",".");
+				
+				Produto p = new Produto(nomeProduto.toUpperCase(),precoProduto);
 				boolean cadastrado = repo.cadastrado(p);
 				
 				if(!cadastrado) {
@@ -83,6 +86,8 @@ public class OuvinteTelaCadastroProdutos implements MouseListener{
 				model.removeRow(tela.getTbPreco().getSelectedRow());
 				
 				limparTexto();
+				
+				JOptionPane.showMessageDialog(null, "Produto excluido.", "Informação", 1, null);
 			} catch (Exception e2) {
 				JOptionPane.showMessageDialog(null, "Selecione um produto para ser excluido.", "Atenção!", 2, null);
 			}
@@ -98,13 +103,15 @@ public class OuvinteTelaCadastroProdutos implements MouseListener{
 						
 						Object id = tela.getTbPreco().getValueAt(tela.getTbPreco().getSelectedRow(), 0);
 						Object nome = tela.getTxtNomeProduto().getText();
-						Object preco = tela.getTxtPreco().getText();
+						Object preco = tela.getTxtPreco().getText().replaceAll(",",".");
 						Produto p = new Produto(Integer.parseInt(id.toString()), nome.toString(), preco.toString());
 						
 						repo.atualizarProduto(p);
 						limparTabela();
 						tela.listarProdutosTabela();
 						limparTexto();
+						
+						JOptionPane.showMessageDialog(null, "Produto atualizado.", "Informação", 1, null);
 						
 					}
 					else {

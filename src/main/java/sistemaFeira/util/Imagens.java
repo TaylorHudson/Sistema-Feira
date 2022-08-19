@@ -22,5 +22,6 @@ public class Imagens {
 	public static ImageIcon seta = new ImageIcon(Imagens.class.getResource("/imagensProjeto/seta.png"));
 	public static ImageIcon dinheiroDePapel = new ImageIcon(Imagens.class.getResource("/imagensProjeto/dinheiroPapel.png"));
 	public static ImageIcon lupaMaior = new ImageIcon(Imagens.class.getResource("/imagensProjeto/lupaMaior.png"));
+	public static ImageIcon codigoBarra = new ImageIcon(Imagens.class.getResource("/imagensProjeto/codigoBarra.png"));
 
 }

@@ -28,6 +28,22 @@ public class OuvinteTelaCaixa implements MouseListener, ActionListener{
 		this.tela = tela;
 	}
 	
+	private void limparTexto() {
+		tela.getTxtRecebido().setForeground(new Color(176,196,222));
+		tela.getTxtRecebido().setText("RECEBIDO");
+		tela.getTxtRecebido().setEditable(false);
+		
+		tela.getTxtTroco().setText("TROCO");
+		tela.getTxtTroco().setEditable(false);
+		tela.getTxtTroco().setForeground(new Color(176,196,222));
+		
+		DefaultTableModel model = (DefaultTableModel) tela.getTbVendas().getModel();
+		model.setNumRows(0);
+		
+		tela.getLblValorTotal().setText("0");
+		
+	}
+	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if(e.getSource() == tela.getLblSeta()) {
@@ -35,18 +51,7 @@ public class OuvinteTelaCaixa implements MouseListener, ActionListener{
 			new TelaInicial().setVisible(true);
 		}
 		else if(e.getSource() == tela.getLblExcluir()) {
-			DefaultTableModel model = (DefaultTableModel) tela.getTbVendas().getModel();
-			model.setNumRows(0);
-			tela.getLblValorTotal().setText("0");
-			
-			tela.getTxtRecebido().setForeground(new Color(176,196,222));
-			tela.getTxtRecebido().setText("RECEBIDO");
-			tela.getTxtRecebido().setEditable(false);
-			
-			tela.getTxtTroco().setText("TROCO");
-			tela.getTxtTroco().setEditable(false);
-			tela.getTxtTroco().setForeground(new Color(176,196,222));
-			
+			limparTexto();
 			tela.getBox().setSelectedIndex(0);
 			
 		}
@@ -80,6 +85,12 @@ public class OuvinteTelaCaixa implements MouseListener, ActionListener{
 			
 			repo.cadastrarVenda(venda);
 			JOptionPane.showMessageDialog(null, "Venda Cadastrada Com Sucesso.", "Informação da Venda", 1, null);
+			
+			int numVendas = Integer.parseInt(tela.getLblNumeroVendas().getText());
+			numVendas++;
+			tela.getLblNumeroVendas().setText(String.valueOf(numVendas));
+			
+			limparTexto();
 		}
 	}
 
