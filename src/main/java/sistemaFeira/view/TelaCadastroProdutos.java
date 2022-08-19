@@ -13,6 +13,8 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import com.toedter.calendar.JCalendar;
+
 import sistemaFeira.model.Produto;
 import sistemaFeira.repositorios.RepositorioProduto;
 import sistemaFeira.util.Imagens;
@@ -40,6 +42,7 @@ public class TelaCadastroProdutos extends JFrame {
 
 	private void configurarTela() {
 		setLayout(null);
+		setTitle("Cadastro de Produtos");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(900, 750);
 		setLocationRelativeTo(null);
@@ -108,7 +111,7 @@ public class TelaCadastroProdutos extends JFrame {
 	private void configurarAreaOpcao() {
 		OuvinteTelaCadastroProdutos ouvinte = new OuvinteTelaCadastroProdutos(this);
 		
-		JLabel lblOpcoes = new JLabel("OPÃ‡Ã•ES");
+		JLabel lblOpcoes = new JLabel("OPÇÕES");
 		lblOpcoes.setBounds(10, 130, 120, 25);
 		lblOpcoes.setFont(new Font("Arial", 1, 17));
 		lblOpcoes.setForeground(Color.BLACK);
@@ -160,7 +163,7 @@ public class TelaCadastroProdutos extends JFrame {
 		OuvinteTelaCadastroProdutos ouvinte = new OuvinteTelaCadastroProdutos(this);
 		
 		DefaultTableModel modelo = new DefaultTableModel(0, 3);
-		modelo.setColumnIdentifiers(new String[] {"CÃ“DIGO DO PRODUTO" , "NOME DO PRODUTO", "PREÃ‡O DO PRODUTO"});
+		modelo.setColumnIdentifiers(new String[] {"CÓDIGO DO PRODUTO" , "NOME DO PRODUTO", "PREÇO DO PRODUTO"});
 		tbPreco = new JTable(modelo);
 		tbPreco.addMouseListener(ouvinte);
 		JScrollPane scrol = new JScrollPane(tbPreco);

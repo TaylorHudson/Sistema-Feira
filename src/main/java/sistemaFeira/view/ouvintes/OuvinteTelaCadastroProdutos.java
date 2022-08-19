@@ -45,19 +45,30 @@ public class OuvinteTelaCadastroProdutos implements MouseListener{
 		}
 
 		else if (e.getSource() == tela.getLblRegistrar()) {	
-			Produto p = new Produto(tela.getTxtNomeProduto().getText().toUpperCase(),tela.getTxtPreco().getText().toUpperCase());
+			String nome = tela.getTxtNomeProduto().getText();
+			String preco = tela.getTxtPreco().getText();
 			
-			boolean cadastrado = repo.cadastrado(p);
-			
-			if(!cadastrado) {
-				repo.cadastrarProduto(p);
-				limparTabela();
-				tela.listarProdutosTabela();
-				limparTexto();
+			if(!nome.equals("NOME DO PRODUTO") && !nome.isBlank()
+					&& !preco.equals("PREÇO DO PRODUTO") && !preco.isBlank()) {
+				
+				Produto p = new Produto(tela.getTxtNomeProduto().getText().toUpperCase(),tela.getTxtPreco().getText().toUpperCase());
+				boolean cadastrado = repo.cadastrado(p);
+				
+				if(!cadastrado) {
+					repo.cadastrarProduto(p);
+					limparTabela();
+					tela.listarProdutosTabela();
+					limparTexto();
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "Produto já cadastrado!", "Atenção", 2, null);
+				}		
 			}
-			else{
-				JOptionPane.showMessageDialog(null, "Produto jÃ¡ cadastrado!", "Erro", 0, null);
-			}		
+			else {
+				JOptionPane.showMessageDialog(null, "Preencha todos os dados.", "Atenção", 2, null);
+			}
+			
+			
 		}
 		
 		else if(e.getSource() == tela.getLblExculir()) {

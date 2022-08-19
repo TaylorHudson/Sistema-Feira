@@ -66,7 +66,7 @@ public class OuvinteTelaCaixa implements MouseListener, ActionListener{
 				tela.getTxtTroco().setText(String.valueOf(troco));
 			}
 			else {
-				JOptionPane.showMessageDialog(null, "Valor recebido foi insuficiente.", "AtenÃ§Ã£o!", 2, null);
+				JOptionPane.showMessageDialog(null, "Valor recebido foi insuficiente.", "Atenção!", 2, null);
 			}
 		}
 		else if(e.getSource() == tela.getLblRealizarVenda()) {

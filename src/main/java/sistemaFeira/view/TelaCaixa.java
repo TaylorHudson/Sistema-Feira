@@ -54,7 +54,7 @@ public class TelaCaixa extends JFrame{
 	}
 	
 	private void configurarTela() {
-		setTitle("Vendas");
+		setTitle("Menu de Caixa");
 		setLayout(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(900, 580);
@@ -184,11 +184,15 @@ public class TelaCaixa extends JFrame{
 		
 		JLabel lblTotal = new JLabel("TOTAL: ");
 		lblTotal.setFont(new Font("Arial", 0, 23));
-		lblTotal.setBounds(10, 380, 300, 50);
+		lblTotal.setBounds(50, 360, 200, 50);
+		lblTotal.setOpaque(true);
+		lblTotal.setBackground(new Color(70,130,180));
+		lblTotal.setForeground(Color.white);
 		
 		lblValorTotal = new JLabel("0");
 		lblValorTotal.setFont(new Font("Arial", 0, 21));
-		lblValorTotal.setBounds(100, 380, 300, 50);
+		lblValorTotal.setBounds(140, 360, 300, 50);
+		lblValorTotal.setForeground(Color.white);
 		
 		painelOpcoes.add(lblValorTotal);
 		painelOpcoes.add(lblTotal);

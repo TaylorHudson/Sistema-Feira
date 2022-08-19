@@ -1,5 +1,6 @@
 package sistemaFeira.repositorios;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -58,7 +59,6 @@ public class RepositorioVenda {
 		return v;
 	}
 	
-	@SuppressWarnings("unchecked")
 	public List<Venda> todasVendas() {
 		EntityManager em = emf.createEntityManager();
 		
@@ -66,6 +66,18 @@ public class RepositorioVenda {
 		List<Venda> vendas = q.getResultList();
 		
 		return vendas;
+	}
+	
+	public List<Venda> vendasPorDia(String data){
+		List<Venda> todasVendas = todasVendas();
+		List<Venda> vendasData = new ArrayList<>();
+				
+		for(Venda v : todasVendas) {
+			if(v.getData().equals(data)) {
+				vendasData.add(v);
+			}
+	}	
+		return vendasData;
 	}
 	
 	public Boolean cadastrado(Venda v) {

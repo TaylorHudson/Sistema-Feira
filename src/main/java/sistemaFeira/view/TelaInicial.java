@@ -27,6 +27,7 @@ public class TelaInicial extends JFrame{
 	
 	private void configurarTela() {
 		JLabel bg = new JLabel(Imagens.backGround);
+		setTitle("Menu Principal");
 		setLayout(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(900,800);
